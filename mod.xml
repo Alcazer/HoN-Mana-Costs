@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification
+	application="Heroes of Newerth"
+	appversion="*"
+	mmversion="*"
+	name="Mana Costs"
+	version="1.2.5"
+	date="2018-09-06"
+	description="Displays mana costs above abilities and items."
+	author="Alcazer (Firstly created by Notausgang : 02.11.2009)"
+	weblink="https://github.com/Alcazer/HoN-Mana-Costs"
+	updatecheckurl="http://raw.githubusercontent.com/Alcazer/HoN-Mana-Costs/master/version.txt"
+	updatedownloadurl="http://github.com/Alcazer/HoN-Mana-Costs/releases/download/Latest/Mana_Costs.honmod"
+>
+	<!-- Classic UI -->
+	<editfile name="ui/game_legacy.interface">
+		<find><![CDATA[<frame name="inventory_button_toggle_{slot}"]]></find>
+		<insert position="before"><![CDATA[<frame noclick="true" interactive="false"
+						width="2.7h" height="1.4h"
+						align="left" valign="middle"
+						y="3.3h"
+						color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="SetVisible(param2 gt 0);"
+					>
+						<label noclick="true" interactive="false"
+							width="100%" height="100%"
+							color="aqua"
+							font="dyn_8"
+							textalign="center" textvalign="center"
+							watch="ActiveInventoryDescription{slot}"
+							ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+						/>
+					</frame>
+
+					]]></insert>
+
+		<find><![CDATA[<template name="ability_button_small"]]></find>
+		<find><![CDATA[<image
+					noclick="true" texture="$invis"
+					onloadlua="Game:RegisterAbilityIcon(self, {slot})"
+				/>]]></find>
+		<insert position="after"><![CDATA[
+
+				<!-- Mana cost -->
+				<frame noclick="true" interactive="false"
+					width="2.6h" height="1.2h"
+					align="center" valign="middle"
+					y="1.3h"
+					color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+					watch="ActiveInventoryDescription{slot}"
+					ontrigger="SetVisible(param2 gt 0);"
+				>
+					<label noclick="true" interactive="false"
+						width="100%" height="100%"
+						color="aqua"
+						font="dyn_7"
+						textalign="center" textvalign="center"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+					/>
+				</frame>]]></insert>
+	</editfile>
+
+	<!-- Razor UI -->
+	<editfile name="ui/game_apex.interface">
+		<find><![CDATA[<frame name="inventory_button_toggle_{slot}"]]></find>
+		<insert position="before"><![CDATA[<frame noclick="true" interactive="false"
+						width="2.7h" height="1.4h"
+						align="left" valign="middle"
+						y="3.3h"
+						color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="SetVisible(param2 gt 0);"
+					>
+						<label noclick="true" interactive="false"
+							width="100%" height="100%"
+							color="aqua"
+							font="dyn_8"
+							textalign="center" textvalign="center"
+							watch="ActiveInventoryDescription{slot}"
+							ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+						/>
+					</frame>
+
+					]]></insert>
+
+		<find><![CDATA[<template name="ability_button_small"]]></find>
+		<find><![CDATA[<image
+					noclick="true" texture="$invis"
+					onloadlua="Game:RegisterAbilityIcon(self, {slot})"
+				/>]]></find>
+		<insert position="after"><![CDATA[
+
+				<!-- Mana cost -->
+				<frame noclick="true" interactive="false"
+					width="2.6h" height="1.2h"
+					align="center" valign="middle"
+					y="1.3h"
+					color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+					watch="ActiveInventoryDescription{slot}"
+					ontrigger="SetVisible(param2 gt 0);"
+				>
+					<label noclick="true" interactive="false"
+						width="100%" height="100%"
+						color="aqua"
+						font="dyn_7"
+						textalign="center" textvalign="center"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+					/>
+				</frame>]]></insert>
+	</editfile>
+
+	<!-- Sentinel UI -->
+	<editfile name="ui/game_garena_other.interface">
+		<find><![CDATA[<frame name="inventory_button_toggle_{slot}"]]></find>
+		<insert position="before"><![CDATA[<frame noclick="true" interactive="false"
+						width="2.7h" height="1.4h"
+						align="left" valign="middle"
+						y="3.3h"
+						color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="SetVisible(param2 gt 0);"
+					>
+						<label noclick="true" interactive="false"
+							width="100%" height="100%"
+							color="aqua"
+							font="dyn_8"
+							textalign="center" textvalign="center"
+							watch="ActiveInventoryDescription{slot}"
+							ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+						/>
+					</frame>
+
+					]]></insert>
+
+		<find><![CDATA[<template name="ability_button_small"]]></find>
+		<find><![CDATA[<image
+					noclick="true" texture="$invis"
+					onloadlua="Game:RegisterAbilityIcon(self, {slot})"
+				/>]]></find>
+		<insert position="after"><![CDATA[
+
+				<!-- Mana cost -->
+				<frame noclick="true" interactive="false"
+					width="2.6h" height="1.2h"
+					align="center" valign="middle"
+					y="1.3h"
+					color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+					watch="ActiveInventoryDescription{slot}"
+					ontrigger="SetVisible(param2 gt 0);"
+				>
+					<label noclick="true" interactive="false"
+						width="100%" height="100%"
+						color="aqua"
+						font="dyn_7"
+						textalign="center" textvalign="center"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+					/>
+				</frame>]]></insert>
+	</editfile>
+
+	<!-- Other file -->
+	<editfile name="ui/game_garena.interface">
+		<find><![CDATA[<frame name="inventory_button_toggle_{slot}"]]></find>
+		<insert position="before"><![CDATA[<frame noclick="true" interactive="false"
+						width="2.7h" height="1.4h"
+						align="left" valign="middle"
+						y="3.3h"
+						color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="SetVisible(param2 gt 0);"
+					>
+						<label noclick="true" interactive="false"
+							width="100%" height="100%"
+							color="aqua"
+							font="dyn_8"
+							textalign="center" textvalign="center"
+							watch="ActiveInventoryDescription{slot}"
+							ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+						/>
+					</frame>
+
+					]]></insert>
+
+		<find><![CDATA[<template name="ability_button_small"]]></find>
+		<find><![CDATA[<image
+					noclick="true" texture="$invis"
+					onloadlua="Game:RegisterAbilityIcon(self, {slot})"
+				/>]]></find>
+		<insert position="after"><![CDATA[
+
+				<!-- Mana cost -->
+				<frame noclick="true" interactive="false"
+					width="2.6h" height="1.2h"
+					align="center" valign="middle"
+					y="1.3h"
+					color="0 0 0 .9" bordercolor="0 0 0 .35" borderthickness="1"
+					watch="ActiveInventoryDescription{slot}"
+					ontrigger="SetVisible(param2 gt 0);"
+				>
+					<label noclick="true" interactive="false"
+						width="100%" height="100%"
+						color="aqua"
+						font="dyn_7"
+						textalign="center" textvalign="center"
+						watch="ActiveInventoryDescription{slot}"
+						ontrigger="If(param2 gt 0, SetText(Round(param2)), ClearText());"
+					/>
+				</frame>]]></insert>
+	</editfile>
+
+</modification>
